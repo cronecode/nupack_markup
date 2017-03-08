@@ -25,6 +25,10 @@ describe('Nupack Markup Calculator', function(){
             expect(calculator.getWorkerMarkup(4560.11, 1)).to.equal(54.72)
         })
 
+        it('uses a default value of 1 if the workers parameter is not given', function(){
+            expect(calculator.getWorkerMarkup(100.00)).to.equal(1.20)
+        })
+
     })
 
     describe('#getCategoryMarkup()', function(){

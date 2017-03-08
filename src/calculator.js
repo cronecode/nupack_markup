@@ -8,7 +8,9 @@ exports.applyFlatMarkup = function(initialPrice){
     return Number.parseFloat(flatApplied)
 }
 
-exports.getWorkerMarkup = function(flatApplied, workers){
+exports.getWorkerMarkup = function(flatApplied, workers = 1){
+    //if the workers parameter is not given, default to 1
+
     //as above, workerMarkup will be a string
     var workerMarkup = ((flatApplied * 0.012) * workers).toFixed(2)
     //convert it to a number
