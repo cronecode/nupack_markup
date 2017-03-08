@@ -2,7 +2,9 @@ var expect = require('chai').expect
 var calculator = require('../src/calculator')
 
 describe('Nupack Markup Calculator', function(){
+
     describe('#applyFlatMarkup()', function(){
+
         it('adds 5% to the initial base price', function(){
             expect(calculator.applyFlatMarkup(100)).to.equal(105)
         })
@@ -17,6 +19,7 @@ describe('Nupack Markup Calculator', function(){
     })
 
     describe('#getWorkerMarkup()', function(){
+
         it('calculates a 1.2% markup for every worker on the job', function(){
             expect(calculator.getWorkerMarkup(100.00, 2)).to.equal(2.40)
         })
@@ -36,7 +39,22 @@ describe('Nupack Markup Calculator', function(){
     })
 
     describe('#getCategoryMarkup()', function(){
-        it('calculates the category markup if applicable')
+
+        it('calculates the category markup if applicable', function(){
+            expect(calculator.getCategoryMarkup(100, 'pharmaceuticals')).to.equal(7.50)
+            expect(calculator.getCategoryMarkup(100, 'food')).to.equal(13.00)
+            expect(calculator.getCategoryMarkup(100, 'electronics')).to.equal(2.00)
+        })
+
+        it('returns 0 if category is not given, or if it has any other value', function(){
+            expect(calculator.getCategoryMarkup(100)).to.equal(0)
+            expect(calculator.getCategoryMarkup(100, 6)).to.equal(0)
+            expect(calculator.getCategoryMarkup(100, 'bears')).to.equal(0)
+        })
+
+        it('returns an error if flatApplied is negative', function(){
+            expect(calculator.getCategoryMarkup(-1, 'food')).to.be.instanceof(Error)
+        })
     })
 
     describe('#nupackPrice()', function(){

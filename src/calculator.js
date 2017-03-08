@@ -21,3 +21,23 @@ exports.getWorkerMarkup = function(flatApplied, workers = 1){
     //convert it to a number
     return Number.parseFloat(workerMarkup)
 }
+
+exports.getCategoryMarkup = function(flatApplied, category){
+    if (flatApplied < 0){
+        return new Error ('Price must be a positive number')
+    }
+    switch(category){
+        case 'pharmaceuticals':
+            return flatApplied * 0.075
+            break
+        case 'food':
+            return flatApplied * 0.13
+            break
+        case 'electronics':
+            return flatApplied * 0.02
+            break
+        default:
+            return 0
+            break
+    }
+}
