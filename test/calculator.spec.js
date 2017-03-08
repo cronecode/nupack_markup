@@ -6,6 +6,10 @@ describe('Nupack Markup Calculator', function(){
         it('adds 5% to the initial base price', function(){
             expect(calculator.applyFlatMarkup(100)).to.equal(105)
         })
+
+        it('should be precise to 2 decimal places', function(){
+            expect(calculator.applyFlatMarkup(26.25)).to.equal(27.56)
+        })
     })
 
     describe('#getWorkerMarkup()', function(){
