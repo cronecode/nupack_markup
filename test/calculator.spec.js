@@ -10,6 +10,10 @@ describe('Nupack Markup Calculator', function(){
         it('should be precise to 2 decimal places', function(){
             expect(calculator.applyFlatMarkup(26.25)).to.equal(27.56)
         })
+
+        it('should return an error if passed a negative number', function(){
+            expect(calculator.applyFlatMarkup(-1)).to.be.instanceof(Error)
+        })
     })
 
     describe('#getWorkerMarkup()', function(){
