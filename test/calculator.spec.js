@@ -17,7 +17,9 @@ describe('Nupack Markup Calculator', function(){
     })
 
     describe('#getWorkerMarkup()', function(){
-        it('calculates the worker markup if applicable')
+        it('calculates a 1.2% markup for every worker on the job', function(){
+            expect(calculator.getWorkerMarkup(100.00, 2)).to.equal(2.40)
+        })
     })
 
     describe('#getCategoryMarkup()', function(){

@@ -7,3 +7,7 @@ exports.applyFlatMarkup = function(initialPrice){
     //convert the string to prevent coercion shenanigans later on
     return Number.parseFloat(flatApplied)
 }
+
+exports.getWorkerMarkup = function(flatApplied, workers){
+    return (flatApplied * 0.012) * workers
+}
