@@ -1,6 +1,6 @@
 exports.applyFlatMarkup = function(initialPrice){
     if (initialPrice < 0) {
-        return new Error('Initial price must be a positive number.')
+        return new Error('Initial price must be a positive number')
     }
     //flatApplied will be a string in currency format
     var flatApplied = (initialPrice * 1.05).toFixed(2)
@@ -10,6 +10,11 @@ exports.applyFlatMarkup = function(initialPrice){
 
 exports.getWorkerMarkup = function(flatApplied, workers = 1){
     //if the workers parameter is not given, default to 1
+    //if either parameter is negative, return an Error
+
+    if (flatApplied < 0 || workers < 0){
+        return new Error('Values must be positive numbers')
+    }
 
     //as above, workerMarkup will be a string
     var workerMarkup = ((flatApplied * 0.012) * workers).toFixed(2)

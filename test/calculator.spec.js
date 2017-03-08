@@ -29,6 +29,10 @@ describe('Nupack Markup Calculator', function(){
             expect(calculator.getWorkerMarkup(100.00)).to.equal(1.20)
         })
 
+        it('returns an error if either parameter is a negative number', function(){
+            expect(calculator.getWorkerMarkup(100, -1)).to.be.instanceof(Error)
+            expect(calculator.getWorkerMarkup(-100, 1)).to.be.instanceof(Error)
+        })
     })
 
     describe('#getCategoryMarkup()', function(){
