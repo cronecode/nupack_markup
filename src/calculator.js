@@ -3,13 +3,11 @@ exports.nupackPrice = function(initialPrice, workers, category){
     var workerMarkup = this.getWorkerMarkup(flatApplied, workers)
     var categoryMarkup = this.getCategoryMarkup(flatApplied, category)
 
-    return flatApplied + workerMarkup + categoryMarkup
+    var finalCost = (flatApplied + workerMarkup + categoryMarkup).toFixed(2)
+    return Number.parseFloat(finalCost)
 }
 
-
-
-
-
+//functions below are exposed for testing only
 
 exports.applyFlatMarkup = function(initialPrice){
     if (initialPrice < 0) {

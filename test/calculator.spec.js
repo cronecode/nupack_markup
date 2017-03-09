@@ -60,11 +60,13 @@ describe('Nupack Markup Calculator', function(){
             expect(calculator.getCategoryMarkup(49.99, 'food')).to.equal(6.50)
         })
     })
-/*
+
     describe('#nupackPrice()', function(){
-        it('applies the flat markup to the initial price and then adds the worker and category markups', function(){
+        it('returns the final cost in currency format', function(){
             expect(calculator.nupackPrice(1299.99, 3, 'food')).to.equal(1591.58)
+            expect(calculator.nupackPrice(5432.00, 1, 'pharmaceuticals')).to.equal(6199.81)
+            expect(calculator.nupackPrice(12456.95, 4, 'books')).to.equal(13707.63)
         })
     })
-*/
+
 })
