@@ -1,7 +1,7 @@
 var expect = require('chai').expect
 var calculator = require('../src/calculator')
 
-describe('Nupack Markup Calculator', function(){
+describe('NuPack Markup Calculator', function(){
 
     describe('#applyFlatMarkup()', function(){
 
