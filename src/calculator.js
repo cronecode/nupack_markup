@@ -1,3 +1,16 @@
+exports.nupackPrice = function(initialPrice, workers, category){
+    var flatApplied = this.applyFlatMarkup(initialPrice)
+    var workerMarkup = this.getWorkerMarkup(flatApplied, workers)
+    var categoryMarkup = this.getCategoryMarkup(flatApplied, category)
+
+    return flatApplied + workerMarkup + categoryMarkup
+}
+
+
+
+
+
+
 exports.applyFlatMarkup = function(initialPrice){
     if (initialPrice < 0) {
         return new Error('Initial price must be a positive number')
@@ -26,18 +39,21 @@ exports.getCategoryMarkup = function(flatApplied, category){
     if (flatApplied < 0){
         return new Error ('Price must be a positive number')
     }
+
     switch(category){
         case 'pharmaceuticals':
-            return flatApplied * 0.075
+            var categoryMarkup = (flatApplied * 0.075).toFixed(2)
             break
         case 'food':
-            return flatApplied * 0.13
+            var categoryMarkup = (flatApplied * 0.13).toFixed(2)
             break
         case 'electronics':
-            return flatApplied * 0.02
+            var categoryMarkup = (flatApplied * 0.02).toFixed(2)
             break
         default:
-            return 0
+            var categoryMarkup = 0
             break
     }
+
+    return Number.parseFloat(categoryMarkup)
 }

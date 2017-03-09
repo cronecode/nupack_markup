@@ -55,9 +55,16 @@ describe('Nupack Markup Calculator', function(){
         it('returns an error if flatApplied is negative', function(){
             expect(calculator.getCategoryMarkup(-1, 'food')).to.be.instanceof(Error)
         })
-    })
 
-    describe('#nupackPrice()', function(){
-        it('calculates the final cost of the job')
+        it('should be precise to 2 decimal places', function(){
+            expect(calculator.getCategoryMarkup(49.99, 'food')).to.equal(6.50)
+        })
     })
+/*
+    describe('#nupackPrice()', function(){
+        it('applies the flat markup to the initial price and then adds the worker and category markups', function(){
+            expect(calculator.nupackPrice(1299.99, 3, 'food')).to.equal(1591.58)
+        })
+    })
+*/
 })
