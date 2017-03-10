@@ -62,11 +62,11 @@ describe('NuPack Markup Calculator', function(){
     })
 
     describe('#nupackPrice()', function(){
-        it('returns the final cost in currency format', function(){
+        it('adds the markups together and returns the final cost', function(){
             expect(calculator.nupackPrice(1299.99, 3, 'food')).to.equal(1591.58)
             expect(calculator.nupackPrice(5432.00, 1, 'pharmaceuticals')).to.equal(6199.81)
             expect(calculator.nupackPrice(12456.95, 4, 'books')).to.equal(13707.63)
         })
     })
-
+    
 })
