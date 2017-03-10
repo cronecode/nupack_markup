@@ -34,18 +34,20 @@ exports.getCategoryMarkup = function(flatApplied, category){
         return new Error ('Price must be a positive number')
     }
 
+    var categoryMarkup
+
     switch(category){
         case 'pharmaceuticals':
-            var categoryMarkup = flatApplied * 0.075
+            categoryMarkup = flatApplied * 0.075
             break
         case 'food':
-            var categoryMarkup = flatApplied * 0.13
+            categoryMarkup = flatApplied * 0.13
             break
         case 'electronics':
-            var categoryMarkup = flatApplied * 0.02
+            categoryMarkup = flatApplied * 0.02
             break
         default:
-            var categoryMarkup = 0
+            categoryMarkup = 0
             break
     }
 
